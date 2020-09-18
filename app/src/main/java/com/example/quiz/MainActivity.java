@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences preferences = getSharedPreferences("datos", MODE_PRIVATE);
         encuestados = preferences.getStringSet("registrados", null);
         Lista();
-
-
     }
 
     public void Lista(){
@@ -41,13 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ()->{
                     try {
                         Thread.sleep(500);
-
-                        if(encuestados !=null) {
-
                             for (String usuarios : encuestados) {
-                                runOnUiThread(() -> encuestadosText.append(usuarios + "\n"));
+                                runOnUiThread(
+                                        () -> {
+                                            encuestadosText.append(usuarios + "\n");
+                                        }
+                                );
                             }
-                        }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

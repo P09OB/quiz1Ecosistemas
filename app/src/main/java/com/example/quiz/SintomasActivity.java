@@ -48,8 +48,8 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
 
         SharedPreferences preferences1 = getSharedPreferences("datos", MODE_PRIVATE);
         encuestados = preferences1.getStringSet("registrados", null);
-        if(encuestados==null){
-            encuestados=new HashSet<String>();
+        if(encuestados.equals(null)){
+            encuestados = new HashSet<String>();
         }
 
     }
