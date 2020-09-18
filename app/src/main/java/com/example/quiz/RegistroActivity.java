@@ -21,7 +21,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     String name, identificacion, idsAnteriores;
     Set<String> encuestados;
     String[] ids;
-    boolean pasa = true;
+    boolean pasa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         IDedit = findViewById(R.id.IDedit);
         registrarButton = findViewById(R.id.registrarButton);
         registrarButton.setOnClickListener(this);
-
+        pasa=true;
 
     }
 
@@ -43,13 +43,16 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         identificacion = IDedit.getText().toString();
         ids = idsAnteriores.split(" ");
 
+        if(name.isEmpty() && identificacion.isEmpty()){
+            pasa=true;
+            Toast.makeText(this,"Llene todos los campos",Toast.LENGTH_LONG).show();
+            return;
+        }
+
         for (int i = 0; i < ids.length; i++) {
-
             if (ids[i].contains(identificacion)) {
-
                 pasa = false;
                 Toast.makeText(this,"ID ya fue registrado",Toast.LENGTH_LONG).show();
-
             }
         }
 
@@ -65,6 +68,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         namePrefe.edit().putString("id", identificacion).apply();
 
     }
+
+
 
 
     @Override

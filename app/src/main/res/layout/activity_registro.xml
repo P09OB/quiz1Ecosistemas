@@ -32,11 +32,11 @@
 
         <Button
             android:id="@+id/registrarButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="148dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="173dp"
-            android:layout_marginEnd="148dp"
+            android:layout_marginEnd="100dp"
             android:text="Registrar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -52,7 +52,7 @@
             android:layout_marginEnd="82dp"
             android:ems="10"
             android:hint="Identificación"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userNameEdit" />
@@ -73,12 +73,13 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="35dp"
             android:layout_marginTop="72dp"
-            android:layout_marginEnd="247dp"
+            android:layout_marginEnd="100dp"
             android:text="Nuevo Registro"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

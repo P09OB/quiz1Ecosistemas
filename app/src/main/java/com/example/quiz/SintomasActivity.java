@@ -48,7 +48,9 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
 
         SharedPreferences preferences1 = getSharedPreferences("datos", MODE_PRIVATE);
         encuestados = preferences1.getStringSet("registrados", null);
-
+        if(encuestados==null){
+            encuestados=new HashSet<String>();
+        }
 
     }
 
@@ -63,6 +65,7 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
         boolean fatiga  = opcion5Box.isChecked();
         boolean respirar  = opcion6Box.isChecked();
         boolean ninguno  = opcion7Box.isChecked();
+
 
         switch(view.getId()){
 
@@ -122,10 +125,11 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
             }
 
                 total = puntajeNexo +puntaje;
+                encuestados.add(name + "  " + total);
+
 
                 Log.e("puntaje",puntaje+ "");
                 Log.e("TOTAL",total+"");
-
 
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
@@ -134,18 +138,13 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
 
         }
 
+
+
         if( fiebre == true || dolorDeGarganta==true || congestion==true||tos == true|| fatiga == true || respirar == true || ninguno == true){
             continuarButton.setEnabled(true);
         } else {
             continuarButton.setEnabled(false);
         }
-
-     if(name != null){
-
-    encuestados.add(name + "  " + total);
-      }
-
-
 
         SharedPreferences preferences = getSharedPreferences("datos", MODE_PRIVATE);
         preferences.edit().putStringSet("registrados",encuestados).apply();
