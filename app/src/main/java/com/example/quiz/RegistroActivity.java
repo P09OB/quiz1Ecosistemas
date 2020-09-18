@@ -18,10 +18,11 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private EditText userNameEdit;
     private EditText IDedit;
     private Button registrarButton;
-    String name, identificacion, idsAnteriores;
-    Set<String> encuestados;
-    String[] ids;
-    boolean pasa;
+
+    private String name, identificacion, idsAnteriores;
+    private Set<String> encuestados;
+    private String[] ids;
+    private boolean pasa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         name = userNameEdit.getText().toString();
         identificacion = IDedit.getText().toString();
-        ids = idsAnteriores.split(" ");
 
         if(name.isEmpty() && identificacion.isEmpty()){
             pasa=true;
@@ -49,13 +49,14 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        ids = idsAnteriores.split(" ");
+
         for (int i = 0; i < ids.length; i++) {
             if (ids[i].contains(identificacion)) {
                 pasa = false;
                 Toast.makeText(this,"ID ya fue registrado",Toast.LENGTH_LONG).show();
             }
         }
-
 
         if (pasa == true) {
 
@@ -68,8 +69,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         namePrefe.edit().putString("id", identificacion).apply();
 
     }
-
-
 
 
     @Override

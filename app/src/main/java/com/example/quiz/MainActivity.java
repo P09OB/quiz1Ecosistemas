@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView encuestadosText;
     private Button registrarButton;
+
     private Set<String> encuestados;
 
     @Override

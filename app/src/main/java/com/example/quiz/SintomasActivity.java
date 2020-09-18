@@ -17,10 +17,12 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
 
     private Button continuarButton;
     private CheckBox opcion1Box,opcion2Box,opcion3Box,opcion4Box,opcion5Box,opcion6Box,opcion7Box;
+
     private int puntaje =0;
     private int  puntajeNexo, total;
-    String name, ID;
-    Set<String> encuestados;
+
+    private String name, ID;
+    private Set<String> encuestados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,12 +126,12 @@ public class SintomasActivity extends AppCompatActivity implements View.OnClickL
                 puntaje += 4;
             }
 
-                total = puntajeNexo +puntaje;
-                encuestados.add(name + "  " + total);
-
+                total = puntajeNexo + puntaje;
 
                 Log.e("puntaje",puntaje+ "");
                 Log.e("TOTAL",total+"");
+
+                encuestados.add("Nombre:"+" "+ name + "  -  "+ "Puntaje:"+" "+ total);
 
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);

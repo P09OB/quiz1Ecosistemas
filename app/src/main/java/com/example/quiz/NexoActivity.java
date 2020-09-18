@@ -14,6 +14,7 @@ public class NexoActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button continuarButton;
     private CheckBox opcion1check, opcion2check,opcion3check, opcion4check, opcion5check;
+
     private int puntaje = 0;
 
     @Override
