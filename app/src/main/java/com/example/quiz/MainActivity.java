@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ()->{
                     try {
                         Thread.sleep(500);
+                        if(encuestados != null) {
                             for (String usuarios : encuestados) {
                                 runOnUiThread(
                                         () -> {
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         }
                                 );
                             }
+                        }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
